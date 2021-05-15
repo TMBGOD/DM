@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang = "ru">
+<head>
+  <meta charset="utf-8">
+  <title>Лаб_3</title>
+  <script src="Лаб_3.js"></script>
+</head>
+<body>
+  <b> Введите матрицу отношений, состояющую из единиц и нулей</b>
+  <br></br>
+  <form onsubmit="main(); return false;"><p>Количество столбцов <input type="text" value="2" id="dimensionx"><br></p>
+    <form onsubmit="main(); return false;"><p>Количество строк <input type="text" value="2" id="dimensiony"><br></p>
+      <textarea name="matrixin" cols="10" rows="10" id="cin"></textarea></form>
+  <input type="button" value="Проверить" name="confirm" onclick="main()">
+    <p>Является ли функцией:  <span id="Res"></span></p>
+</body>
+</html>

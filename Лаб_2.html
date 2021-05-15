@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang = "ru">
+<head>
+    <meta charset="utf-8">
+    <title>Лаб_2</title>
+    <script src="Лаб_2.js"></script>
+</head>
+<body>
+    <b> Введите координаты единиц в поле ниже</b>
+    <br></br>
+    <form onsubmit="main(); return false;"><p>Размерность матрицы <input type="text" value="2" id="dimension"><br></p>
+    <textarea name="matrixin" cols="10" rows="10" id="cin"></textarea>
+    <textarea name="matrixout" cols="10" rows="10" readonly id="cout"></textarea><br>
+    <p>Симметричность <span id="Symmetry"></span></p>
+    <p>Антисимметричность <span id="Antisymmetry"></span></p>
+    <p>Кососимметричность <span id="Skewsymmetry"></span></p>
+    <p>Рефлексивность <span id="Reflexivity"></span></p>
+    <p>Антирефлексивность <span id="Areflectiveness"></span></p>
+    <p>Транзитивность <span id="Transitivity"></span></p>
+        <input type="submit" name="submit" value="Посчитать"></form>
+
+</body>
+</html>
