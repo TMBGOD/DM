@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang = "ru">
+<html>
     <head>
         <meta charset="utf-8">
         <title>Лаб_4</title>
@@ -10,7 +10,7 @@
             <b></b>
             <p>Куда <input type="text" name="finish"><br></p>
             <b></b>
-            <p>Матрица должна быть квадратной и антирефлексивной и не содержать отрицательных чисел</p>
+            <p>Матрица должна быть квадратной и не содержать отрицательных чисел</p>
             <textarea name="matrixin" cols="10" rows="10"></textarea>
             <input type="submit" value="Посчитать" name="confirm">
         </form>

@@ -25,9 +25,6 @@
         if ($finish < 1 || $finish > count($matrix)){
             return false;
         }
-        for ($i = 0; $i < count($matrix); $i++) {
-            if ($matrix[$i][$i] != 0) return false;
-        }
         for ($i = 0; $i != count($matrix); $i++) {
             if (count($matrix[$i]) > count($matrix)) return false;
         }
@@ -62,6 +59,18 @@
             }
         }
         $d = $matrix;
+        $p = [];
+        for ($i = 0; $i < $len; $i++) {
+            array_push($p, []);
+            for ($j = 0; $j < $len; $j++) {
+                if ($matrix[$i][$j] != 1000000){
+                    $p[$i][$j] = $j;
+                }
+                else{
+                    $p[$i][$j] = 100;
+                }
+            }
+        }
         //Проходим по всем вершинам и ищем кратчайшие пути.
         for ($ij = 0; $ij < $len; $ij++) {
             for ($i = 0; $i < $len; $i++) {
@@ -69,25 +78,44 @@
                     if ($i != $j) {
                         if ($d[$i][$j] > $d[$i][$ij] + $d[$ij][$j]) {
                             $d[$i][$j] = $d[$i][$ij] + $d[$ij][$j];
+                            $p[$i][$j] = $p[$i][$ij];
                         }
                     }
                 }
             }
         }
+
+
         //Выводим кратчайший путь.
         if ($d[$start][$finish] == 1000000){
-			echo "<head><meta charset='utf-8'></head>";
-            return "Ошибка, пути нет";
+            echo "Ошибка, пути нет";
+            return 0;
         }
-        return $d[$start][$finish];
+        Path($p, $start, $finish);
+        echo "<h3>Кратчайшее расстояние: </h3>";
+        echo $d[$start][$finish];
+    }
+
+    function Path($p, $start, $finish){
+        $path = [];
+        if ($p[$start][$finish] != 100){
+            $x = $start;
+            array_push($path, $x + 1);
+            while ($x != $finish){
+                $x = $p[$x][$finish];
+                array_push($path, $x + 1);
+            }
+        }
+        echo "<h3>Кратчайший путь: </h3>";
+        for ($ij = 0; $ij < count($path); $ij++) {
+            echo " ", $path[$ij];
+        }
     }
     if (!vvod($matrix, $start, $finish)) {
         echo "Ошибка";
     }
     else {
-		echo "<head><meta charset='utf-8'></head>";
-        echo "<h3>Кратчайшее расстояние: </h3>";
-        echo FloydUo($matrix, $start, $finish);
+        FloydUo($matrix, $start, $finish);
     }
 
 ?>
